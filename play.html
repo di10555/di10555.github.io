@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>播放影片</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #444;
+      font-family: "Microsoft JhengHei", sans-serif;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .play-button {
+      background-color: #444;
+      border: 2px solid #ff8c42;
+      border-radius: 30px;
+      color: #ff8c42;
+      padding: 15px 25px;
+      font-size: 1.2em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      margin-bottom: 20px;
+    }
+
+    .play-button:hover {
+      background-color: #555;
+      transform: scale(1.05);
+    }
+
+    .play-button:active {
+      transform: scale(0.95);
+    }
+
+    video {
+      max-width: 100%;
+      border-radius: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="play-button" onclick="playVideo()">播放影片</button>
+
+  <video id="myVideo" controls>
+    <source src="main.mp4" type="video/mp4">
+    您的瀏覽器不支援 HTML5 影片。
+  </video>
+
+  <script>
+    function playVideo() {
+      const video = document.getElementById("myVideo");
+      video.style.display = "block";
+      video.play();
+      document.querySelector(".play-button").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
